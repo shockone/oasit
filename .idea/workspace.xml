@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" afterPath="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
     </list>
     <ignored path="oasit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +40,7 @@
     <file path="/ticket_created_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378067345129" ignored="false" />
     <file path="/ticket_updated_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378070255832" ignored="false" />
     <file path="/post_created_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378070950838" ignored="false" />
-    <file path="/production.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378077180320" ignored="false" />
+    <file path="/production.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378078314431" ignored="false" />
     <file path="/_assign_to_me.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378077914242" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,19 +90,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="1042" selection-end="2032" vertical-scroll-proportion="0.0">
+            <state line="79" column="0" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.86923075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_assign_to_me.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_assign_to_me.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="32" selection-start="251" selection-end="251" vertical-scroll-proportion="0.09615385">
+            <state line="5" column="68" selection-start="287" selection-end="287" vertical-scroll-proportion="-3.2692308">
               <folding />
             </state>
           </provider>
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/app/views/tickets/show.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/tickets_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/tickets/_filter.html.haml" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
       </list>
     </option>
   </component>
@@ -1003,16 +1003,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="1042" selection-end="2032" vertical-scroll-proportion="0.0">
+        <state line="5" column="68" selection-start="287" selection-end="287" vertical-scroll-proportion="-3.2692308">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml">
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="32" selection-start="251" selection-end="251" vertical-scroll-proportion="0.09615385">
+        <state line="79" column="0" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.86923075">
           <folding />
         </state>
       </provider>
