@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.references :department
       t.references :ticket_status, index: true
       t.references :user, index: true
-      t.string :title
+      t.string :subject
 
       t.timestamps
     end

@@ -25,6 +25,8 @@ class TicketsController < ApplicationController
   # GET /tickets/new.json
   def new
     @ticket = Ticket.new
+    @ticket.ticket_posts.build
+    @ticket.build_reporter
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,14 +42,21 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    @ticket = Ticket.new(params[:ticket])
+    reporter_params = params[:ticket][:reporter_attributes]
+    if (User.where(email: reporter_params[:email]).empty?)
+      reporter_params[:password] = reporter_params[:password_confirmation] = Devise.friendly_token.first(8)
+      params[:ticket][:reporter_attributes] = reporter_params
+    else
+      params[:ticket].delete :reporter_attributes
+    end
 
+    @ticket = Ticket.new(params[:ticket])
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render json: @ticket, status: :created, location: @ticket }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
