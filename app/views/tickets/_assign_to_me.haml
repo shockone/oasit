@@ -1,4 +1,4 @@
-- if current_user.staff?
+- if current_user.staff? && @ticket.employee_id != current_user.id
   .pull-right
     = form_for @ticket, html: {class: 'form-inline'} do |f|
       = f.hidden_field :employee_id, value: current_user.id

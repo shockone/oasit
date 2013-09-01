@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" afterPath="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" />
     </list>
     <ignored path="oasit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,6 +41,7 @@
     <file path="/ticket_updated_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378070255832" ignored="false" />
     <file path="/post_created_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378070950838" ignored="false" />
     <file path="/production.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378077180320" ignored="false" />
+    <file path="/_assign_to_me.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378077914242" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,10 +90,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="64" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.7010989">
+            <state line="29" column="0" selection-start="1042" selection-end="2032" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_assign_to_me.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="32" selection-start="251" selection-end="251" vertical-scroll-proportion="0.09615385">
               <folding />
             </state>
           </provider>
@@ -120,15 +130,6 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/tickets_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="45" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ticket_posts_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/ticket_posts_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,7 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/ticket_created_email.html.erb" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/ticket_updated_email.html.erb" />
@@ -186,6 +186,7 @@
         <option value="$PROJECT_DIR$/app/controllers/tickets_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/tickets/_filter.html.haml" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" />
       </list>
     </option>
   </component>
@@ -902,13 +903,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="35" selection-start="201" selection-end="201" vertical-scroll-proportion="-5.230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/passwords/edit.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="6" selection-start="176" selection-end="176" vertical-scroll-proportion="-1.9615384">
@@ -1011,7 +1005,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="64" selection-start="1928" selection-end="1928" vertical-scroll-proportion="0.7010989">
+        <state line="29" column="0" selection-start="1042" selection-end="2032" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="32" selection-start="251" selection-end="251" vertical-scroll-proportion="0.09615385">
           <folding />
         </state>
       </provider>
