@@ -4,7 +4,10 @@ class TicketsController < ApplicationController
   before_filter :authenticate_or_register, only: :create
 
   def index
-    @tickets = Ticket.all
+    @departments = Department.all
+    @statuses = TicketStatus.all
+    @search = Ticket.search(params[:q])
+    @tickets = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
