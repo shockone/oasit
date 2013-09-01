@@ -5,7 +5,13 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+group :development do
+  gem 'mysql2'
+end
+
+group :production do
+  gem 'pg'
+end
 gem 'devise'
 gem 'haml-rails'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
