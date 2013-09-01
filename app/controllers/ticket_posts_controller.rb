@@ -1,6 +1,5 @@
 class TicketPostsController < ApplicationController
-  # GET /ticket_posts
-  # GET /ticket_posts.json
+
   def index
     @ticket_posts = TicketPost.all
 
@@ -10,8 +9,7 @@ class TicketPostsController < ApplicationController
     end
   end
 
-  # GET /ticket_posts/1
-  # GET /ticket_posts/1.json
+
   def show
     @ticket_post = TicketPost.find(params[:id])
 
@@ -21,8 +19,7 @@ class TicketPostsController < ApplicationController
     end
   end
 
-  # GET /ticket_posts/new
-  # GET /ticket_posts/new.json
+
   def new
     @ticket_post = TicketPost.new
 
@@ -32,13 +29,12 @@ class TicketPostsController < ApplicationController
     end
   end
 
-  # GET /ticket_posts/1/edit
+
   def edit
     @ticket_post = TicketPost.find(params[:id])
   end
 
-  # POST /ticket_posts
-  # POST /ticket_posts.json
+
   def create
     @ticket_post = TicketPost.new(params[:ticket_post])
 
@@ -53,8 +49,7 @@ class TicketPostsController < ApplicationController
     end
   end
 
-  # PUT /ticket_posts/1
-  # PUT /ticket_posts/1.json
+
   def update
     @ticket_post = TicketPost.find(params[:id])
 
@@ -69,8 +64,7 @@ class TicketPostsController < ApplicationController
     end
   end
 
-  # DELETE /ticket_posts/1
-  # DELETE /ticket_posts/1.json
+
   def destroy
     @ticket_post = TicketPost.find(params[:id])
     @ticket_post.destroy

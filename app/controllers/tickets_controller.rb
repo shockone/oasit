@@ -1,6 +1,8 @@
 class TicketsController < ApplicationController
-  # GET /tickets
-  # GET /tickets.json
+
+  before_filter :authenticate_user!, except: [:new, :create]
+  before_filter :authenticate_or_register, only: :create
+
   def index
     @tickets = Ticket.all
 
@@ -10,8 +12,7 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/1
-  # GET /tickets/1.json
+
   def show
     @ticket = Ticket.find(params[:id])
     @new_post = TicketPost.new
@@ -22,8 +23,7 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/new
-  # GET /tickets/new.json
+
   def new
     @ticket = Ticket.new
     @ticket.ticket_posts.build
@@ -35,26 +35,14 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/1/edit
+
   def edit
     @ticket = Ticket.find(params[:id])
   end
 
-  # POST /tickets
-  # POST /tickets.json
-  def create
-    if user_signed_in?
-      params[:ticket][:reporter_id] = current_user.id
-    else
-      reporter_params = params[:ticket][:reporter_attributes]
-      if (User.where(email: reporter_params[:email]).empty?)
-        reporter_params[:password] = reporter_params[:password_confirmation] = Devise.friendly_token.first(8)
-        params[:ticket][:reporter_attributes] = reporter_params
-      else
-        params[:ticket].delete :reporter_attributes
-      end
-    end
 
+  def create
+    params[:ticket][:reporter_id] = params[:ticket][:ticket_posts_attributes]['0'][:user_id] = current_user.id
 
     @ticket = Ticket.new(params[:ticket])
     respond_to do |format|
@@ -69,8 +57,7 @@ class TicketsController < ApplicationController
     end
   end
 
-  # PUT /tickets/1
-  # PUT /tickets/1.json
+
   def update
     @ticket = Ticket.find(params[:id])
 
@@ -79,14 +66,13 @@ class TicketsController < ApplicationController
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /tickets/1
-  # DELETE /tickets/1.json
+
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
@@ -95,5 +81,32 @@ class TicketsController < ApplicationController
       format.html { redirect_to tickets_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def authenticate_or_register
+    return true if user_signed_in?
+
+    if User.where(email: params[:reporter][:email]).blank?
+      user = create_user
+      sign_in user
+    else
+      session[:ticket] = params[:ticket]
+      redirect_to new_user_session_path, {notice: 'User with this email already exists. Please sign in.'}
+    end
+  end
+
+
+  def create_user
+    params[:reporter][:password] = params[:reporter][:password_confirmation] = Devise.friendly_token.first(8)
+
+    if (user = User.create params[:reporter])
+      UserMailer.welcome_email(user).deliver
+    else
+      render action: 'new' and return
+    end
+
+    user
   end
 end

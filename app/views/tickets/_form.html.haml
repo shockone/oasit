@@ -7,7 +7,7 @@
           %li= msg
   %fieldset.col-sm-offset-1.col-sm-10
     %legend Submit a request ticket
-    = render 'form_reporter', f: f unless user_signed_in?
+    = render 'form_reporter' unless user_signed_in?
     .row
       .col-sm-8
         .input-group
@@ -26,7 +26,7 @@
     - submit_text = (controller.action_name == 'new' ? 'Submit' : 'Update') + ' the ticket'
     .col-sm-4.col-sm-offset-4
       %br
-      = f.submit submit_text, class: 'form-control'
+      = f.submit submit_text, class: 'form-control btn-primary'
 
 
 

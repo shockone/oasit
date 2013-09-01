@@ -6,7 +6,7 @@
   .panel{class: panel_class}
     .panel-heading
       = post.user.name
-      .pull-right= 'Created ' + time_ago_in_words(post.updated_at) + ' ago.'
+      .pull-right= time_ago_in_words(post.updated_at).capitalize + ' ago.'
     .panel-body= simple_format post.content
 = form_for @new_post do |f|
   .col-sm-10= f.text_area :content, class: 'form-control', rows: 7
