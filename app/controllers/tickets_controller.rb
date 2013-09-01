@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  include ActiveModel::Dirty
 
   before_filter :authenticate_user!, except: [:new, :create]
   before_filter :authenticate_or_register, only: :create
@@ -9,21 +10,13 @@ class TicketsController < ApplicationController
     @search = Ticket.search(params[:q])
     @tickets = @search.result
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tickets }
-    end
+    @tickets = @tickets.select{|ticket| ticket.reporter_id == current_user.id} unless current_user.staff?
   end
 
 
   def show
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find(from_param params[:id])
     @new_post = TicketPost.new
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @ticket }
-    end
   end
 
 
@@ -31,16 +24,11 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     @ticket.ticket_posts.build
     @ticket.build_reporter
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ticket }
-    end
   end
 
 
   def edit
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find(from_param params[:id])
   end
 
 
@@ -49,42 +37,32 @@ class TicketsController < ApplicationController
 
     @ticket = Ticket.new(params[:ticket])
     @ticket.ticket_status_id = TicketStatus.default_status_id
-    respond_to do |format|
-      if @ticket.save
-        UserMailer.welcome_email(@ticket.reporter).deliver
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket, status: :created, location: @ticket }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.save
+      UserMailer.ticket_created_email(@ticket).deliver
+      redirect_to @ticket, notice: 'Ticket was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
 
   def update
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find(from_param params[:id])
 
-    respond_to do |format|
-      if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    @ticket.assign_attributes(params[:ticket])
+    changes = @ticket.changes if @ticket.changed?
+    if @ticket.save
+      UserMailer.ticket_updated_email(@ticket, changes).deliver if changes.present?
+      redirect_to @ticket, notice: 'Ticket was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
 
   def destroy
-    @ticket = Ticket.find(params[:id])
+    @ticket = Ticket.find(from_param params[:id])
     @ticket.destroy
-
-    respond_to do |format|
-      format.html { redirect_to tickets_url }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -112,5 +90,9 @@ class TicketsController < ApplicationController
     end
 
     user
+  end
+
+  def from_param(slug)
+    slug.split('-')[1]
   end
 end

@@ -1,4 +1,5 @@
 class TicketPostsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @ticket_posts = TicketPost.all
@@ -38,14 +39,11 @@ class TicketPostsController < ApplicationController
   def create
     @ticket_post = TicketPost.new(params[:ticket_post])
 
-    respond_to do |format|
-      if @ticket_post.save
-        format.html { redirect_to :back, notice: 'Reply was successfully created.' }
-        format.json { render json: @ticket_post, status: :created, location: @ticket_post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @ticket_post.errors, status: :unprocessable_entity }
-      end
+    if @ticket_post.save
+      UserMailer.post_created_email(@ticket_post.ticket.reporter, @ticket_post).deliver if current_user.staff?
+      redirect_to :back, notice: 'Reply was successfully created.'
+    else
+      render action: 'new'
     end
   end
 

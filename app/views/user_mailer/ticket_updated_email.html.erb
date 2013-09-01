@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hello, <%= @user.name %></h1>
+<p>
+  Your ticket has been updated, you can check it following this URI:
+</p>
+<p>
+  <%= @url %>
+</p>
+<% @changes.each do |message| %>
+    <p><%= message %></p>
+<% end %>
+</body>
+</html>

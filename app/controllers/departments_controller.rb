@@ -1,4 +1,5 @@
 class DepartmentsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @departments = Department.all

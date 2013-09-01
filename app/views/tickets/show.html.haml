@@ -1,13 +1,13 @@
 %h1.inline= @ticket.subject
 = render 'ticket_status_and_department'
-
+= render 'assign_to_me'
 .row
   %br
   - @ticket.ticket_posts.each do |post|
     - panel_class = post.user.staff? ? 'panel-default' : 'panel-primary'
     .panel{class: panel_class}
       .panel-heading
-        = post.user.name
+        = post.user.name + " (#{post.user.email})"
         .pull-right= time_ago_in_words(post.updated_at).capitalize + ' ago.'
       .panel-body= simple_format post.content
   = form_for @new_post do |f|

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hello, <%= @user.name %></h1>
+<p>
+  <%= @ticket_post.user.name  %> commended your ticket:
+</p>
+<p>
+  <%= simple_format @ticket_post.content %>
+</p>
+<p>
+  You can check it following this URI:
+</p>
+<p>
+  <%= @url %>
+</p>
+</body>
+</html>
