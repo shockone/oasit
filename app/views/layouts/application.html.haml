@@ -2,11 +2,37 @@
 %html
   %head
     %title Oasit
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'application', :media => "all"
+    = javascript_include_tag 'https://js.stripe.com/v1/'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = link_to('Register', new_user_registration_path)
-    = yield
+    .container
+      %nav.navbar.navbar-default{:role => "navigation"}
+        / Brand and toggle get grouped for better mobile display
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => root_path} Oasit
+        / Collect the nav links, forms, and other content for toggling
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %form.navbar-form.navbar-left{:role => "search"}
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}/
+            %button.btn.btn-default{:type => "submit"} Submit
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                = link_to('Logout', destroy_user_session_path, :method => :delete)
+            - else
+              %li
+                = link_to('Login', new_user_session_path)
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert if alert
+
+      = yield

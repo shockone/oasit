@@ -1,0 +1,11 @@
+.input-group
+= f.fields_for :reporter do |r|
+  .row.well
+    .col-sm-6
+      .input-group
+        %span.input-group-addon Name
+        = r.text_field :name, placeholder: 'John Smith', required: '', class: 'form-control'
+    .col-sm-6
+      .input-group
+        %span.input-group-addon Email
+        = r.text_field :email, placeholder: 'john@example.com', required: '', class: 'form-control'

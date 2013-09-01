@@ -1,29 +1,33 @@
-= form_for @ticket do |f|
+= form_for @ticket, html: {class: 'well row'} do |f|
   - if @ticket.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@ticket.errors.count, "error")} prohibited this ticket from being saved:"
+      %h2= "#{pluralize(@ticket.errors.count, 'error')} prohibited this ticket from being saved:"
       %ul
         - @ticket.errors.full_messages.each do |msg|
           %li= msg
-  %fieldset
+  %fieldset.col-sm-offset-1.col-sm-10
     %legend Submit a request ticket
-    .control-group
-    = f.fields_for :reporter do |r|
-      .control-group
-        = r.label :name, class: 'control-label'
-        = r.text_field :name, placeholder: 'John Smith', required: '', class: 'input-xlarge'
-      .control-group
-        = r.label :email, class: 'control-label'
-        = r.text_field :email, placeholder: 'john@example.com', required: ''
-    .control-group
-      = f.label :subject, class: 'control-label'
-      = f.text_field :subject, required: ''
-    .control-group
-      = f.label :department_id, class: 'control-label'
-      = f.collection_select :department_id, Department.all, :id, :title, {}
-    = f.fields_for :ticket_posts do |p|
-      = p.text_area :content, required: ''
+    = render 'form_reporter', f: f unless user_signed_in?
+    .row
+      .col-sm-8
+        .input-group
+          %span.input-group-addon Subject
+          = f.text_field :subject, required: '', class: 'form-control'
+      .col-sm-4
+        .input-group
+          %span.input-group-addon Department
+          = f.collection_select :department_id, Department.all, :id, :title, {}, {class: 'form-control'}
+    %br
+    .row
+      = f.fields_for :ticket_posts do |p|
+        = p.text_area :content, required: '', id: 'new-ticket-text', class: 'form-control'
 
   .actions
     - submit_text = (controller.action_name == 'new' ? 'Submit' : 'Update') + ' the ticket'
-    = f.submit submit_text
+    .col-sm-4.col-sm-offset-4
+      %br
+      = f.submit submit_text, class: 'form-control'
+
+
+
+
