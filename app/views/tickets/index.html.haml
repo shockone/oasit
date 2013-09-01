@@ -1,25 +1,11 @@
 %h1 Listing tickets
 
 .row
-  .col-sm-9
+  .col-sm-8
     %ul.list-group
       - @tickets.each do |ticket|
         %li.list-group-item
           = link_to ticket.subject, ticket
-  .col-sm-3
-    .panel.panel-default
-      .panel-heading Filter
-      .panel-body
-        = search_form_for @search do |f|
-          .input-group
-            %span.input-group-addon Subject
-            = f.text_field :subject_cont, class: 'form-control'
-          %br
-          .input-group
-            %span.input-group-addon Departments
-            = f.collection_select :department_id_in, @departments, :id, :title, {}, { size: @departments.length, multiple: true, class: 'form-control' }
-          %br
-          .input-group
-            %span.input-group-addon Statuses
-            = f.collection_select :ticket_status_id_in, @statuses, :id, :title, {}, { size: @statuses.length, multiple: true }
-          = f.submit 'Search', class: 'form-control'
+          .pull-right.label.label-default= ticket.ticket_status.name
+          .pull-right.label.label-primary= ticket.department.title
+  = render 'filter'

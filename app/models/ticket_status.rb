@@ -1,4 +1,8 @@
 class TicketStatus < ActiveRecord::Base
-  belongs_to :ticket
-  # attr_accessible :title, :body
+  has_many :ticket
+  attr_accessible :name
+
+  def self.default_status_id
+    TicketStatus.where(name: 'Waiting for Staff Response').first.id || 1
+  end
 end

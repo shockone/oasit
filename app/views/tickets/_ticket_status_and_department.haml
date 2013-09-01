@@ -1,0 +1,9 @@
+- if current_user.staff?
+  .pull-right
+    = form_for @ticket, html: {class: 'form-inline'} do |f|
+      .form-group
+        = f.collection_select :ticket_status_id, TicketStatus.all, :id, :name, {}, {class: 'form-control'}
+      .form-group
+        = f.collection_select :department_id, Department.all, :id, :title, {}, {class: 'form-control'}
+      .form-group
+        = f.submit 'Update', class: 'form-control btn-primary'

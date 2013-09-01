@@ -5,6 +5,6 @@
       %ul
         - @ticket_status.errors.full_messages.each do |msg|
           %li= msg
-
+  = f.text_field :name, autofocus: ''
   .actions
     = f.submit 'Save'

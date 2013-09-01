@@ -48,6 +48,7 @@ class TicketsController < ApplicationController
     params[:ticket][:reporter_id] = params[:ticket][:ticket_posts_attributes]['0'][:user_id] = current_user.id
 
     @ticket = Ticket.new(params[:ticket])
+    @ticket.ticket_status_id = TicketStatus.default_status_id
     respond_to do |format|
       if @ticket.save
         UserMailer.welcome_email(@ticket.reporter).deliver

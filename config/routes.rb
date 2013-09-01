@@ -4,7 +4,7 @@ Oasit::Application.routes.draw do
   resources :tickets
   resources :ticket_posts
   resources :ticket_statuses
-  resource :departments
+  resources :departments
 
 
   # The priority is based upon order of creation:

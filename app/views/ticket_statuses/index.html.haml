@@ -8,6 +8,7 @@
 
   - @ticket_statuses.each do |ticket_status|
     %tr
+      %td= ticket_status.name
       %td= link_to 'Show', ticket_status
       %td= link_to 'Edit', edit_ticket_status_path(ticket_status)
       %td= link_to 'Destroy', ticket_status, :method => :delete, :data => { :confirm => 'Are you sure?' }
