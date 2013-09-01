@@ -9,15 +9,8 @@
   %body
     .container
       %nav.navbar.navbar-default{:role => "navigation"}
-        / Brand and toggle get grouped for better mobile display
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => root_path} Oasit
-        / Collect the nav links, forms, and other content for toggling
+        %a.navbar-brand{:href => root_path} Oasit
+        %a.navbar-brand{:href => tickets_path} Tickets
         .collapse.navbar-collapse.navbar-ex1-collapse
           %form.navbar-form.navbar-left{:role => "search"}
             .form-group

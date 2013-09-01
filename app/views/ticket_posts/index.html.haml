@@ -1,0 +1,17 @@
+%h1 Listing ticket_posts
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @ticket_posts.each do |ticket_post|
+    %tr
+      %td= link_to 'Show', ticket_post
+      %td= link_to 'Edit', edit_ticket_post_path(ticket_post)
+      %td= link_to 'Destroy', ticket_post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ticket post', new_ticket_post_path

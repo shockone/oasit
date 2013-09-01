@@ -10,7 +10,6 @@ gem 'devise'
 gem 'haml-rails'
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

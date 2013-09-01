@@ -14,9 +14,10 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
+    @new_post = TicketPost.new
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @ticket }
     end
   end
@@ -42,13 +43,18 @@ class TicketsController < ApplicationController
   # POST /tickets
   # POST /tickets.json
   def create
-    reporter_params = params[:ticket][:reporter_attributes]
-    if (User.where(email: reporter_params[:email]).empty?)
-      reporter_params[:password] = reporter_params[:password_confirmation] = Devise.friendly_token.first(8)
-      params[:ticket][:reporter_attributes] = reporter_params
+    if user_signed_in?
+      params[:ticket][:reporter_id] = current_user.id
     else
-      params[:ticket].delete :reporter_attributes
+      reporter_params = params[:ticket][:reporter_attributes]
+      if (User.where(email: reporter_params[:email]).empty?)
+        reporter_params[:password] = reporter_params[:password_confirmation] = Devise.friendly_token.first(8)
+        params[:ticket][:reporter_attributes] = reporter_params
+      else
+        params[:ticket].delete :reporter_attributes
+      end
     end
+
 
     @ticket = Ticket.new(params[:ticket])
     respond_to do |format|

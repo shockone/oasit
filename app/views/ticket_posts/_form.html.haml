@@ -1,0 +1,10 @@
+= form_for @ticket_post do |f|
+  - if @ticket_post.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ticket_post.errors.count, "error")} prohibited this ticket_post from being saved:"
+      %ul
+        - @ticket_post.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

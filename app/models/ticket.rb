@@ -7,5 +7,5 @@ class Ticket < ActiveRecord::Base
 
   accepts_nested_attributes_for :department, :ticket_posts, :reporter
 
-  attr_accessible :subject, :department_id, :ticket_posts_attributes, :reporter_attributes
+  attr_accessible :subject, :department_id, :ticket_posts_attributes, :reporter_attributes, :reporter_id
 end

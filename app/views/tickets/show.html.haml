@@ -1,6 +1,15 @@
-%p#notice= notice
+%h1= @ticket.subject
+%br
 
-
-= link_to 'Edit', edit_ticket_path(@ticket)
-\|
-= link_to 'Back', tickets_path
+- @ticket.ticket_posts.each do |post|
+  - panel_class = post.user.staff? ? 'panel-default' : 'panel-primary'
+  .panel{class: panel_class}
+    .panel-heading
+      = post.user.name
+      .pull-right= 'Created ' + time_ago_in_words(post.updated_at) + ' ago.'
+    .panel-body= simple_format post.content
+= form_for @new_post do |f|
+  .col-sm-10= f.text_area :content, class: 'form-control', rows: 7
+  .col-sm-2= f.submit 'Reply', class: 'form-control btn-primary'
+  = f.hidden_field :ticket_id, value: @ticket.id
+  = f.hidden_field :user_id, value: current_user.id

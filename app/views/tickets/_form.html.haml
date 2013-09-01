@@ -20,7 +20,7 @@
     %br
     .row
       = f.fields_for :ticket_posts do |p|
-        = p.text_area :content, required: '', id: 'new-ticket-text', class: 'form-control'
+        = p.text_area :content, required: '', class: 'form-control'
 
   .actions
     - submit_text = (controller.action_name == 'new' ? 'Submit' : 'Update') + ' the ticket'

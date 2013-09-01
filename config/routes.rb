@@ -2,6 +2,7 @@ Oasit::Application.routes.draw do
   devise_for :users
 
   resources :tickets
+  resources :ticket_posts
   resource :departments
 
 
