@@ -3,12 +3,13 @@ class TicketsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:new, :create]
   before_filter :authenticate_or_register, only: :create
+  before_filter :search_by_slug_hack, only: :index
 
   def index
     @departments = Department.all
     @statuses = TicketStatus.all
     @search = Ticket.search(params[:q])
-    @tickets = @search.result
+    @tickets = @search.result(distinct: true)
 
     @tickets = @tickets.select{|ticket| ticket.reporter_id == current_user.id} unless current_user.staff?
   end
@@ -66,6 +67,13 @@ class TicketsController < ApplicationController
   end
 
   private
+
+  def search_by_slug_hack
+    if params.has_key? :q and params[:q].has_key? :id_eq
+      params[:q][:id_eq] = from_param params[:q][:id_eq]
+    end
+  end
+
 
   def authenticate_or_register
     return true if user_signed_in?

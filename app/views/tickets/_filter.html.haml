@@ -4,8 +4,16 @@
     .panel-body
       = search_form_for @search do |f|
         .input-group
+          %span.input-group-addon ID
+          = f.text_field :id_eq, class: 'form-control'
+        %br
+        .input-group
           %span.input-group-addon Subject
           = f.text_field :subject_cont, class: 'form-control'
+        %br
+        .input-group
+          %span.input-group-addon Content
+          = f.text_field :ticket_posts_content_cont, class: 'form-control'
         %br
         .input-group
           %span.input-group-addon Departments
@@ -14,6 +22,11 @@
         .input-group
           %span.input-group-addon Statuses
           = f.collection_select :ticket_status_id_in, @statuses, :id, :name, {}, { size: @statuses.length, multiple: true, class: 'form-control'}
+        %br
+        .input-group
+          %label
+            = f.check_box :employee_id_null
+            Only unassigned
         %br
 
         = f.submit 'Search', class: 'form-control'

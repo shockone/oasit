@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/tickets/_assign_to_me.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/user_mailer/post_created_email.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/user_mailer/ticket_created_email.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/user_mailer/ticket_updated_email.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tickets/_ticket_status_and_department.haml" afterPath="$PROJECT_DIR$/app/views/tickets/_ticket_status_and_department.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/departments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/departments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tickets/show.html.haml" afterPath="$PROJECT_DIR$/app/views/tickets/show.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ticket.rb" afterPath="$PROJECT_DIR$/app/models/ticket.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ticket_posts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ticket_posts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ticket_statuses_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ticket_statuses_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tickets/_filter.html.haml" afterPath="$PROJECT_DIR$/app/views/tickets/_filter.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tickets_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tickets_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" afterPath="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="oasit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +25,7 @@
     <file path="/temp.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378074916200" ignored="false" />
     <file path="/departments_controller.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1377953450911" ignored="false" />
     <file path="/department.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378058629255" ignored="false" />
-    <file path="/tickets_controller.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378074784553" ignored="false" />
+    <file path="/tickets_controller.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378075652939" ignored="false" />
     <file path="/index.html.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378060487349" ignored="false" />
     <file path="/welcome_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378066472594" ignored="false" />
     <file path="/application.html.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378072280468" ignored="false" />
@@ -48,7 +35,7 @@
     <file path="/show.html.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378071876916" ignored="false" />
     <file path="/a.dummy" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378074843871" ignored="false" />
     <file path="/ticket_posts_controller.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378070975115" ignored="false" />
-    <file path="/_filter.html.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378057910826" ignored="false" />
+    <file path="/_filter.html.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378076217148" ignored="false" />
     <file path="/_ticket_status_and_department.haml" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378071657441" ignored="false" />
     <file path="/user_mailer.rb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378071062593" ignored="false" />
     <file path="/ticket_created_email.html.erb" changelist="bcf4c1b3-a105-45dd-b4ce-6e09f83498c9" time="1378067345129" ignored="false" />
@@ -82,29 +69,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/tickets/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="31" selection-start="690" selection-end="690" vertical-scroll-proportion="0.30769232">
+            <state line="4" column="5" selection-start="102" selection-end="102" vertical-scroll-proportion="-2.6153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_ticket_status_and_department.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/tickets/_ticket_status_and_department.haml">
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/tickets/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="426" selection-end="426" vertical-scroll-proportion="-5.8846154">
+            <state line="10" column="13" selection-start="311" selection-end="311" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/devise/passwords/edit.html.haml">
+      <file leaf-file-name="_filter.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/tickets/_filter.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="176" selection-end="176" vertical-scroll-proportion="-1.9615384">
-              <folding />
+            <state line="28" column="20" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.5464983">
+              <folding>
+                <marker date="1378076258000" expanded="true" signature="986:998" placeholder=".input-group" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,7 +101,7 @@
       <file leaf-file-name="tickets_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/tickets_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+            <state line="11" column="45" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -181,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/ticket_statuses/index.html.haml" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb" />
@@ -195,8 +183,9 @@
         <option value="$PROJECT_DIR$/app/controllers/ticket_posts_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/ticket_statuses_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/ticket.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/tickets_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/tickets/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/tickets_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/tickets/_filter.html.haml" />
       </list>
     </option>
   </component>
@@ -913,20 +902,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/ticket_posts_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="5" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_mailer/post_created_email.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="55" selection-start="210" selection-end="210" vertical-scroll-proportion="-5.230769">
@@ -1011,17 +986,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/tickets_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/tickets/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+        <state line="4" column="5" selection-start="102" selection-end="102" vertical-scroll-proportion="-2.6153846">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/tickets/show.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/controllers/tickets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="31" selection-start="690" selection-end="690" vertical-scroll-proportion="0.30769232">
+        <state line="11" column="45" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tickets/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="311" selection-end="311" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/tickets/_filter.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="20" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.5464983">
+          <folding>
+            <marker date="1378076258000" expanded="true" signature="986:998" placeholder=".input-group" />
+          </folding>
         </state>
       </provider>
     </entry>
