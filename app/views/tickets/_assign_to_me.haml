@@ -3,4 +3,4 @@
     = form_for @ticket, html: {class: 'form-inline'} do |f|
       = f.hidden_field :employee_id, value: current_user.id
       .form-group
-        = f.submit 'Assign to me', class: 'form-control btn-primary'
+        = f.submit 'Assign to me', class: 'form-control btn btn-default'

@@ -1,0 +1,16 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  %a.navbar-brand{href: root_path} Oasit
+  .navbar-text
+    %a.navbar-link{href: tickets_path} Tickets
+  .navbar-text
+    %a.navbar-link{href: ticket_statuses_path} Statuses
+  .navbar-text
+    %a.navbar-link{href: departments_path} Departments
+  %ul.nav.navbar-nav.navbar-right
+    - if user_signed_in?
+      .navbar-text= current_user.email
+      %li
+        = link_to("Logout", destroy_user_session_path, :method => :delete)
+    - else
+      %li
+        = link_to('Login', new_user_session_path)

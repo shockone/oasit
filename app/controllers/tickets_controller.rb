@@ -11,6 +11,7 @@ class TicketsController < ApplicationController
     @search = Ticket.search(params[:q])
     @tickets = @search.result(distinct: true)
 
+    #TODO: Optimize, it's not necessary to pull out all the tickets and then filter them.
     @tickets = @tickets.select{|ticket| ticket.reporter_id == current_user.id} unless current_user.staff?
   end
 
@@ -34,6 +35,7 @@ class TicketsController < ApplicationController
 
 
   def create
+    #Add user ID to params in order to automatically create associated models
     params[:ticket][:reporter_id] = params[:ticket][:ticket_posts_attributes]['0'][:user_id] = current_user.id
 
     @ticket = Ticket.new(params[:ticket])
@@ -66,11 +68,12 @@ class TicketsController < ApplicationController
     @ticket.destroy
   end
 
+
   private
 
   def search_by_slug_hack
     if params.has_key? :q and params[:q].has_key? :id_eq
-      params[:q][:id_eq] = from_param params[:q][:id_eq]
+      params[:q][:id_eq] = from_param(params[:q][:id_eq])
     end
   end
 
@@ -82,6 +85,7 @@ class TicketsController < ApplicationController
       user = create_user
       sign_in user
     else
+      #TODO: Restore ticket text after user signed in
       session[:ticket] = params[:ticket]
       redirect_to new_user_session_path, {notice: 'User with this email already exists. Please sign in.'}
     end
@@ -96,11 +100,11 @@ class TicketsController < ApplicationController
     else
       render action: 'new' and return
     end
-
     user
   end
 
   def from_param(slug)
-    slug.split('-')[1]
+    slug.split('-').last
   end
+
 end
